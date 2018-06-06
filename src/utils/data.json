@@ -1,0 +1,15 @@
+{
+  "users": {
+    "D82N7B4D4hWH4dSu8HidHGrNGdh1": {
+      "uid": "D82N7B4D4hWH4dSu8HidHGrNGdh1",
+      "displayName": "Gabriele Rapone",
+      "email": "gabrapone@gmail.com",
+      "todos": [
+        {
+          "id": 0,
+          "title": "Example todo"
+        }
+      ]
+    }
+  }
+}
