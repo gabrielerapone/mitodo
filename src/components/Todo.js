@@ -7,12 +7,11 @@ import doneIcon from "../assets/doneIcon.svg";
 
 export default class Todo extends Component {
   render() {
-    const todo = this.props.todo;
-    const uid = this.props.uid;
+    const { uid, todo, todoId } = this.props;
     return (
       <TodoBox>
         <h1>{todo.title}</h1>
-        <DoneIcon src={doneIcon} onClick={() => removeTodo(uid, todo.id)} />
+        <DoneIcon src={doneIcon} onClick={() => removeTodo(uid, todoId)} />
       </TodoBox>
     );
   }

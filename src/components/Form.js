@@ -19,10 +19,11 @@ export default class Form extends Component {
   handleClick = e => {
     const uid = this.props.data.uid;
     const todo = this.state.inputValue;
+
     this.setState({
       inputValue: ""
     });
-    addTodo(uid, todo);
+    addTodo(uid, todo, this.props.totalTodos);
   };
 
   render() {

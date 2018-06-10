@@ -1,8 +1,8 @@
 import moment from "moment";
 
-export const todoObj = (todosNumber, todo) => {
+export const todoObj = (id, todo) => {
   return {
-    id: todosNumber,
+    id,
     title: todo,
     date: moment().format("LLLL")
   };

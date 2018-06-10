@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import update from "immutability-helper";
 import firebase from "firebase/app";
-import moment from "moment";
 // Utils
 import { firebaseInit } from "./config/firebase";
 import { doesItExist } from "./utils/firebase";
+import { todoObj } from "./utils/model/todoObj";
 // Components
 import Main from "./components/Main";
 import Login from "./utils/Login";
@@ -27,14 +27,7 @@ class App extends Component {
       firebase.auth().onAuthStateChanged(user => {
         // User is signed in
         if (user) {
-          const {
-            uid,
-            displayName,
-            email,
-            emailVerified,
-            photoUrl,
-            providerData
-          } = user;
+          const { uid, displayName, email, emailVerified, providerData } = user;
 
           // Get number of todos
           firebase
@@ -49,20 +42,19 @@ class App extends Component {
               })
             );
 
-          // Updates state with user's data
-          this.setState({
-            user: {
-              uid,
-              displayName,
-              email,
-              todos: [],
-              totalTodos: null,
-              emailVerified,
-              providerData
-            }
-          });
-
           if (!doesItExist(uid)) {
+            // Updates state with user's data
+            this.setState({
+              user: {
+                uid,
+                displayName,
+                email,
+                totalTodos: null,
+                emailVerified,
+                providerData
+              }
+            });
+
             // Creates db reference with user's data
             firebase
               .database()
@@ -70,20 +62,23 @@ class App extends Component {
               .update({ ...this.state.user });
 
             // Sets new user's first task
+            const newTodo = todoObj(0, "HEY THERE! WELCOME IN MITODO!");
             this.setState({
-              user: update(this.state.user, {
-                todos: {
-                  $set: {
-                    id: 0,
-                    title: "HEY THERE! WELCOME IN MITODO!",
-                    date: moment().format("LLLL")
-                  }
-                }
-              })
+              user: update(this.state.user, { todos: { $set: { 0: newTodo } } })
             });
           }
         }
       });
+      // const user = firebase.auth().currentUser;
+      // if (user != null) {
+      //   const name = user.displayName;
+      //   const email = user.email;
+      //   const photoUrl = user.photoURL;
+      //   const emailVerified = user.emailVerified;
+      //   const totalTodos = null;
+      //   const uid = user.uid;
+      //   return name, email, photoUrl, emailVerified, totalTodos, uid;
+      // }
     };
     window.addEventListener("load", () => initApp());
   }

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 // Utils
 import fetchData from "../utils/fetchData";
-// import { checkTodos } from "../utils/firebase";
 // Components
 import TodoList from "./TodoList";
 import Spinner from "../utils/Spinner";
@@ -35,7 +34,7 @@ export default class Main extends Component {
       <Wrapper>
         <h1>MITODO</h1>
         {renderList}
-        <Form data={this.state.data} />
+        <Form data={this.state.data} totalTodos={this.props.user.totalTodos} />
       </Wrapper>
     );
   }
