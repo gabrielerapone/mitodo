@@ -55,6 +55,8 @@ const Bar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+  width: calc(100% - 40px);
   position: fixed;
   top: 0;
   left: 0;

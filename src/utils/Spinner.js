@@ -19,6 +19,4 @@ const Wrapper = styled.div`
   height: calc(100% - 100px);
 `;
 
-const Loading = styled.img`
-  transform: translate(43%, 0);
-`;
+const Loading = styled.img``;

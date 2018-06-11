@@ -43,10 +43,10 @@ export default class Form extends Component {
 }
 
 const FormWrapper = styled.div`
-  width: 90vw;
+  width: calc(100% - 40px);
   position: fixed;
   transform: translate(-50%, 0);
-  bottom: 35px;
+  bottom: 20px;
   left: 50%;
   background-color: white;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
@@ -59,14 +59,14 @@ const AddIcon = styled.img`
 `;
 
 const TodoInput = styled.input`
-  width: 90vw;
+  width: calc(100% - 40px);
   height: 48px;
+  padding: 0 20px;
+  border-radius: 12px;
   border: none;
   font-size: 18px;
-  padding: 0 20px;
   ::placeholder {
     font-size: 16px;
-    padding: 0 20px;
   }
 `;
 
@@ -75,4 +75,5 @@ const AddButton = styled.button`
   background-color: red;
   border: none;
   font-size: 18px;
+  border-radius: 0 7px 7px 0;
 `;

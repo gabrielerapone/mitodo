@@ -30,6 +30,7 @@ const TodoBox = styled.div`
 const TodoTitle = styled.div`
   width: 30%;
   word-wrap: break-word;
+  font-family: Avenir-Medium;
 `;
 const TodoDate = styled.div`
   width: 30%;
