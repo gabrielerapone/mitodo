@@ -1,6 +1,21 @@
 import firebase from "firebase/app";
 import moment from "moment";
 
+// LOGOUT
+const logout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(
+      () => {
+        console.log("Signed Out");
+      },
+      error => {
+        console.error("Sign Out Error", error);
+      }
+    );
+};
+
 // CHECK DATA IN DB
 const doesItExist = (uid, node) => {
   // Check if there are todos
@@ -34,8 +49,7 @@ const addTodo = (uid, todo, totalTodos) => {
 // REMOVE A TODO
 const removeTodo = (uid, todoId) => {
   const db = firebase.database();
-  console.log(todoId);
   db.ref(`users/${uid}/todos/${todoId}`).remove();
 };
 
-export { doesItExist, addTodo, removeTodo };
+export { logout, doesItExist, addTodo, removeTodo };

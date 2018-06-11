@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 // Components
 import Todo from "./Todo";
 import NoTodos from "./noTodos";
@@ -17,9 +18,16 @@ export default class TodoList extends Component {
     );
 
     return (
-      <div>
-        <ul>{renderTodos}</ul>
-      </div>
+      <Wrapper>
+        <ListWrapper>{renderTodos}</ListWrapper>
+      </Wrapper>
     );
   }
 }
+const Wrapper = styled.div`
+  height: calc(100% - 100px);
+`;
+
+const ListWrapper = styled.ul`
+  height: 100%;
+`;

@@ -122,3 +122,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+@font-face {
+  font-family: Avenir-Roman;
+  src: url("./assets/font/Avenir-Roman.ttf");
+}
+@font-face {
+  font-family: Avenir-Black;
+  src: url("./assets/font/Avenir-Black.ttf");
+}
+
+* {
+  font-family: Avenir-Roman;
+}

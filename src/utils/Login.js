@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import firebase from "firebase/app";
 import * as firebaseui from "firebaseui";
+import styled from "styled-components";
 
 export default class Login extends Component {
   componentWillMount() {
@@ -19,6 +20,12 @@ export default class Login extends Component {
   }
 
   render() {
-    return <div id="firebaseui-auth-container" />;
+    return <LoginPage id="firebaseui-auth-container" />;
   }
 }
+
+const LoginPage = styled.div`
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+`;

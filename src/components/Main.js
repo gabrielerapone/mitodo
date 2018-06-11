@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 // Utils
 import fetchData from "../utils/fetchData";
+import { logout } from "../utils/firebase";
 // Components
 import TodoList from "./TodoList";
 import Spinner from "../utils/Spinner";
@@ -32,7 +33,10 @@ export default class Main extends Component {
 
     return (
       <Wrapper>
-        <h1>MITODO</h1>
+        <Bar>
+          <h1>MITODO</h1>
+          <button onClick={logout}>Logout</button>
+        </Bar>
         {renderList}
         <Form data={this.state.data} totalTodos={this.props.user.totalTodos} />
       </Wrapper>
@@ -42,4 +46,21 @@ export default class Main extends Component {
 
 const Wrapper = styled.div`
   padding: 20px;
+  font-family: Avenir-Roman;
+  height: calc(100% - 40px);
+`;
+
+const Bar = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  h1 {
+    display: inline;
+    font-family: Avenir-Black;
+  }
 `;
