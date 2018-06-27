@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
-import update from "immutability-helper";
+// import update from "immutability-helper";
 import firebase from "firebase/app";
 import styled from "styled-components";
 // Utils
@@ -30,19 +30,6 @@ class App extends Component {
         if (user) {
           const { uid, displayName, email, emailVerified, providerData } = user;
 
-          // Get number of todos
-          firebase
-            .database()
-            .ref(`users/${uid}`)
-            .child("todos")
-            .on("value", snapshot =>
-              this.setState({
-                user: update(this.state.user, {
-                  totalTodos: { $set: snapshot.numChildren() }
-                })
-              })
-            );
-
           if (!doesItExist(uid)) {
             // Updates state with user's data
             this.setState({
@@ -56,14 +43,6 @@ class App extends Component {
               }
             });
 
-            // Sets new user's first task
-            // const welcomeTodo = todoObj(0, "HEY THERE! WELCOME IN MITODO!");
-            // this.setState({
-            //   user: update(this.state.user, {
-            //     todos: { $set: { 0: welcomeTodo } }
-            //   })
-            // });
-
             // Creates db reference with user's data
             firebase
               .database()
@@ -72,9 +51,9 @@ class App extends Component {
           }
         } else if (
           !user &&
-          window.location.href !== "http://localhost:3000/login"
+          window.location.href !== "https://www.gabrielerapone.com/Mitodo/login"
         ) {
-          window.location.href = "http://localhost:3000/login";
+          window.location.href = "https://www.gabrielerapone.com/Mitodo/login";
         }
       });
     };

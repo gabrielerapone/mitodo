@@ -26,6 +26,7 @@ export default class TodoList extends Component {
 }
 const Wrapper = styled.div`
   height: calc(100% - 100px);
+  margin-top: 50px;
 `;
 
 const ListWrapper = styled.ul`

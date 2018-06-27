@@ -6,7 +6,7 @@ import styled from "styled-components";
 export default class Login extends Component {
   componentWillMount() {
     const uiConfig = {
-      signInSuccessUrl: "http://localhost:3000/",
+      signInSuccessUrl: "https://www.gabrielerapone.com/Mitodo/index.html",
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID
